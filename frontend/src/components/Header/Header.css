@@ -1,0 +1,111 @@
+.Header {
+    padding: 0 3vw;
+    border: 1px solid rgb(202, 202, 202);
+    background-color: #fff;
+    position: relative;
+}
+
+/* Estilo do botão hambúrguer */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 10;
+}
+
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: green;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.hamburger-menu .bar.open:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-menu .bar.open:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu .bar.open:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Menu quando o estado está fechado */
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Estilo para o menu quando aberto em dispositivos móveis */
+.nav-list.open {
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-top: 1px solid rgb(202, 202, 202);
+    z-index: 9;
+}
+
+.nav-itens {
+    color: green;
+    text-decoration: none;
+}
+
+.nav-itens a {
+    color: green;
+    text-decoration: none;
+    font-family: 'Quicksand', cursive;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-itens a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: green;
+    width: 0;
+    transition: width 0.4s ease;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+.nav-itens a:hover::after {
+    width: 100%;
+}
+
+.nav-itens.active a {
+    text-decoration: underline;
+}
+
+.nav-image img {
+    width: 10vw;
+    height: auto;
+}
+
+/* Responsividade: oculta o menu padrão e exibe o botão hambúrguer */
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+    }
+
+    .nav-list.open {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+}

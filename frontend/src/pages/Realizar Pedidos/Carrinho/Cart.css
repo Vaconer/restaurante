@@ -1,0 +1,111 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    .modal-content {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 15px;
+        width: 320px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+    }
+}
+
+/* Controle de quantidade */
+.quantity-control {
+    display: flex;
+    align-items: center;
+
+    button {
+        background-color: #e73131;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 5px;
+        font-size: 1.5em;
+        cursor: pointer;
+        transition: background-color 0.2s, box-shadow 0.2s;
+        margin: 0 5px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+        background-color: #c72e2e;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    span {
+        margin: 0 10px;
+        font-size: 1.5em;
+        color: #515757;
+    }
+}
+
+/* Ações do modal */
+.modal-actions {
+    margin-top: 20px;
+
+    .finalizar-compra,
+    .fechar-modal {
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .finalizar-compra:hover {
+        background-color: #218838;
+        transform: scale(1.05);
+    }
+
+    .fechar-modal {
+        background-color: #dc3545;
+    }
+
+    .fechar-modal:hover {
+        background-color: #c82333;
+        transform: scale(1.05);
+    }
+}
+
+.modal-content:hover {
+    transform: scale(1.02);
+}
