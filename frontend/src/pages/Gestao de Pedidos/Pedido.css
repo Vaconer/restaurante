@@ -1,0 +1,33 @@
+/* src/components/Pedido.css */
+.pedido-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.pedido-imagem {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.tempo {
+  font-size: 24px;
+  color: red;
+  font-weight: bold;
+}
+
+.quantidade {
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.observacao {
+  color: red;
+  font-weight: bold;
+  margin-top: 8px;
+}
