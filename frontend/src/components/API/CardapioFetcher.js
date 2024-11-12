@@ -4,7 +4,7 @@ const CardapioFetcher = ({ setCardData }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8080/items'); 
+        const response = await fetch('http://localhost:8080/api/items'); 
         const data = await response.json();
         
         // Transformar a resposta em um formato compatível com o cardápio

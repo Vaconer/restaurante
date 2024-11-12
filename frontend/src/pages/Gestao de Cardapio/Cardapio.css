@@ -1,5 +1,5 @@
 .cardapio {
-    position: relative; 
+    position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,7 @@
         background-size: cover;
         background-position: center;
         opacity: 0.1;
-        z-index: -1; 
+        z-index: -1;
     }
 
     .Topo {
@@ -27,79 +27,85 @@
         margin-bottom: 2em;
 
         h1 {
-            font-family: 'Lobster', cursive; 
+            font-family: 'Lobster', cursive;
             font-size: 3.5em;
             font-weight: bold;
             color: #113253;
         }
 
         h4 {
-            font-family: 'Lobster', cursive; 
+            font-family: 'Lobster', cursive;
             font-size: 1.5em;
             font-weight: 400;
             color: #3f5a5a;
             margin-top: 0.5em;
         }
     }
-    
+
     .container {
         display: flex;
         justify-content: center;
     }
-    
+
     .cards-container {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
         justify-content: center;
-          
+
         .card {
-            width: 300px; 
+            width: 300px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-            background: #ffffff; 
+            background: #ffffff;
             padding: 1.5em;
             display: flex;
-            flex-direction: column; 
-            align-items: center; 
+            flex-direction: column;
+            align-items: center;
             border-radius: 15px;
             transition: transform 0.2s, box-shadow 0.2s;
             border: 1px solid #e0e0e0;
 
             .separator {
-                border: none; /* Remove a borda padrão */
-                height: 0.1px; /* Altura da linha */
-                background-color: #cfcfcf; /* Cor do separador */
-                margin: 1em; /* Espaçamento acima e abaixo da linha */
-              }
+                border: none;
+                /* Remove a borda padrão */
+                height: 0.1px;
+                /* Altura da linha */
+                background-color: #cfcfcf;
+                /* Cor do separador */
+                margin: 1em;
+                /* Espaçamento acima e abaixo da linha */
+            }
 
             .title {
-                font-family: 'Lobster', cursive; 
-                font-size: 1.5em; 
+                font-family: 'Lobster', cursive;
+                font-size: 1.5em;
                 font-weight: bold;
-                margin-bottom: 2em; 
+                margin-bottom: 2em;
                 color: #c0392b;
             }
-            
+
             .card-content {
                 width: 100%;
-                display: flex;  
+                display: flex;
                 flex-direction: column;
-                gap: 10px;  /* Espaço entre os itens */
+                gap: 10px;
+                /* Espaço entre os itens */
 
                 .img-item {
                     display: flex;
                     flex-direction: row;
-                    gap: 20px;  /* Espaço entre as imagens */
+                    gap: 20px;
+                    /* Espaço entre as imagens */
 
                     img {
                         width: 80px;
                         height: 80px;
-                        object-fit: cover;  
+                        object-fit: cover;
                         border-radius: 10px;
                     }
                 }
 
-                .name-price{
+                .name-price {
                     flex-direction: column;
 
                     h3 {
@@ -109,15 +115,19 @@
 
                 .item {
                     display: flex;
-                    align-items: center;  /* Alinha a imagem e o texto verticalmente */
-                    
+                    align-items: center;
+                    /* Alinha a imagem e o texto verticalmente */
+
                     .item-image {
                         flex-shrink: 0;
-                        width: 40px;  /* Define o tamanho pequeno da imagem */
+                        width: 40px;
+                        /* Define o tamanho pequeno da imagem */
                         height: 40px;
-                        margin-right: 10px;  /* Espaço entre a imagem e o texto */
+                        margin-right: 10px;
+                        /* Espaço entre a imagem e o texto */
                         border-radius: 5px;
-                        object-fit: cover;  /* Garante que a imagem mantenha proporção */
+                        object-fit: cover;
+                        /* Garante que a imagem mantenha proporção */
                     }
 
                     .item-text {
@@ -126,7 +136,7 @@
 
                         p {
                             margin: 0;
-                            font-size: 0.9em; 
+                            font-size: 0.9em;
                             color: #515757;
                         }
                     }
@@ -135,12 +145,310 @@
         }
 
         .card:hover {
-            transform: translateY(-5px); 
+            transform: translateY(-5px);
             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
         }
-        
+
         .card:active {
             transform: translateY(0);
         }
     }
+}
+
+/* ================================================
+   Estilos Gerais
+   ================================================ */
+
+/* Botões */
+button {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* ================================================
+   Estilos para o Botão de Adicionar Item
+   ================================================ */
+.add-item-button {
+    padding: 10px 20px;
+    background-color: #a72828;
+    color: white;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.add-item-button:hover {
+    background-color: #882121;
+}
+
+/* ================================================
+   Estilos para o Formulário de Adicionar Item
+   ================================================ */
+.add-item-form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-item-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.add-item-form button {
+    background-color: #20b62d;
+    color: white;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-item-form button:hover {
+    background-color: #199d43;
+}
+
+/* ================================================
+   Estilos para os Botões de Ação (Alterar e Excluir)
+   ================================================ */
+   .item-actions {
+    display: flex;
+    justify-content: left;  /* Centraliza os botões horizontalmente */
+    align-items: left;      /* Centraliza os botões verticalmente */
+    margin-top: 10px;
+    gap: 10px;                /* Adiciona um pequeno espaço entre os botões */
+}
+
+.item-actions button {
+    padding: 12px; /* Tamanho do botão ajustado para ser maior e circular */
+    font-size: 18px; /* Aumentando o tamanho do ícone */
+    width: 38px; /* Largura ajustada para manter os botões pequenos e redondos */
+    height: 38px; /* Altura ajustada para tornar o botão redondo */
+    border-radius: 50%; /* Deixa os botões redondos */
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-actions button i {
+    font-size: 24px; /* Aumentando o tamanho do ícone para ficar bem visível */
+}
+
+/* Botão Alterar (Verde) */
+.item-actions button:first-child {
+    background-color: #368339;
+    color: white;
+}
+
+.item-actions button:first-child:hover {
+    background-color: #265c29;
+}
+
+/* Botão Excluir (Vermelho) */
+.item-actions button:last-child {
+    background-color: #b2362d;
+    color: white;
+}
+
+.item-actions button:last-child:hover {
+    background-color: #601311;
+}
+
+
+/* ================================================
+   Estilos para o Separador Entre Itens
+   ================================================ */
+.separator {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+/* ================================================
+   Estilos para os Itens
+   ================================================ */
+.item-container {
+    margin-bottom: 20px;
+}
+
+.img-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.name-price {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-price p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.name-price h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* ================================================
+   Estilos para o Formulário de Edição
+   ================================================ */
+.edit-item-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.edit-item-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.edit-item-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.edit-item-form input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.edit-item-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 48%;
+}
+
+.edit-item-form button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.edit-item-form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.edit-item-form button[type="button"] {
+    background-color: #f44336;
+    color: white;
+    margin-left: 4%;
+}
+
+.edit-item-form button[type="button"]:hover {
+    background-color: #e53935;
+}
+
+/* ================================================
+   Estilos do Modal
+   ================================================ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal-content h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.modal-content input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.modal-content button[type="button"] {
+    background-color: #f44336;
+    color: white;
+}
+
+.modal-content button[type="button"]:hover {
+    background-color: #e53935;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
