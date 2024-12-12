@@ -1,7 +1,9 @@
 package com.example.backend.restaurante.model.menu;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -13,13 +15,14 @@ public class Cardapio {
 
     private  String title;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "cardapio_item",
             joinColumns = @JoinColumn(name = "cardapio_id"),
             inverseJoinColumns =  @JoinColumn(name = "item_id")
     )
-    private Set<Item> item;
+    @JsonIgnoreProperties("cardapio")
+    private List<Item> item;
 
     public Cardapio(){
 
@@ -41,11 +44,15 @@ public class Cardapio {
         this.title = title;
     }
 
-    public Set<Item> getItem() {
+    public List<Item> getItem() {
         return item;
     }
 
-    public void setItem(Set<Item> item) {
+    public void setItem(List<Item> item) {
         this.item = item;
+    }
+
+    public void removeItem(Item item) {
+        this.item.remove(item); item.getCardapio().remove(this);
     }
 }

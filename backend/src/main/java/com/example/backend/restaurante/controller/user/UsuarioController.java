@@ -17,8 +17,8 @@ public class UsuarioController {
 
         @PostMapping
         public ResponseEntity<Usuario> createUsuario(@RequestBody Usuario usuario) {
-            Usuario newUsuario = usuarioService.saveUsuario(usuario);
-            return ResponseEntity.ok(newUsuario);
+            Usuario Usuario = usuarioService.saveUsuario(usuario);
+            return ResponseEntity.ok(Usuario);
         }
 
         @GetMapping

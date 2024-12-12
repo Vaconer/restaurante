@@ -1,11 +1,13 @@
 package com.example.backend.restaurante.model.menu;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Item {
@@ -17,7 +19,11 @@ public class Item {
     private String descricao;
     private BigDecimal price;
     private String image;
-    private Boolean availability; // Indica se o item está disponível
+    private Boolean availability;
+
+    @ManyToMany(mappedBy = "item")
+    @JsonIgnoreProperties("item")
+    private List<Cardapio> cardapio;
 
     public Item(){
 
@@ -69,5 +75,13 @@ public class Item {
 
     public void setAvailability(Boolean availability) {
         this.availability = availability;
+    }
+
+    public List<Cardapio> getCardapio() {
+        return cardapio;
+    }
+
+    public void setCardapio(List<Cardapio> cardapio) {
+        this.cardapio = cardapio;
     }
 }
