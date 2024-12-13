@@ -1,8 +1,9 @@
 .footer {
-    background-color: #f5f5f5; /* Fundo claro */
+    background-color: #000000; /* Fundo claro */
     padding: 2em 0; /* Padding em cima e embaixo */
     font-family: 'Roboto', sans-serif; /* Fonte padrão */
-    color: #333; /* Cor do texto */
+    color: #646464; /* Cor do texto */
+    margin-top: 3em;
 }
 
 .footer-container {

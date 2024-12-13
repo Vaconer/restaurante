@@ -14,21 +14,21 @@ function Header() {
         <span className={`bar ${isMenuOpen ? 'open' : ''}`}></span>
         <span className={`bar ${isMenuOpen ? 'open' : ''}`}></span>
       </div>
+      <div className="logo-container">
+        <img src={logo} alt="Logo" />
+      </div>
       <ul className={`nav-list ${isMenuOpen ? 'open' : ''}`}>
         <li className={`nav-itens ${location.pathname === '/cardapio' ? 'active' : ''}`}>
-          <Link to="/cardapio">Gestão de Cardápio</Link>
+          <Link to="/cardapio">Cardápio</Link>
         </li>
         <li className={`nav-itens ${location.pathname === '/pedidos' ? 'active' : ''}`}>
-          <Link to="/pedidos">Gerir Pedidos</Link>
-        </li>
-        <li className="nav-image">
-          <img src={logo} alt="Logo" />
+          <Link to="/pedidos">Pedidos</Link>
         </li>
         <li className={`nav-itens ${location.pathname === '/RealizarPedidos' ? 'active' : ''}`}>
-          <Link to="/RealizarPedidos">Realizar Pedidos</Link>
+          <Link to="/RealizarPedidos">Realizar Pedido</Link>
         </li>
         <li className={`nav-itens ${location.pathname === '/entrega' ? 'active' : ''}`}>
-          <Link to="/entrega">Gerir Entrega</Link>
+          <Link to="/entrega">Entrega</Link>
         </li>
       </ul>
     </div>

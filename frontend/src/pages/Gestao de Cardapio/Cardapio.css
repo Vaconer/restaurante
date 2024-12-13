@@ -1,310 +1,379 @@
-/* Cardapio.css */
+/* Estilo geral da página */
 
-/* Estilos gerais */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Container principal */
-  .cardapio {
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #101010;
+  color: #e2e8f0;
+  margin: 0;
+  padding: 0;
+}
 
-  }
-  
-  .Topo {
-    display: flex;
-    flex-direction: column; /* Organiza os itens na vertical */
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
-    height: 30vh;
-  }
-  
-  .Topo h1 {
-    font-size: 36px;
-    color: #333;
+.cardapio {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  h1 {
+    margin-top: 1em;
+    margin-bottom: 10px;
     text-align: center;
+    font-size: 80px;
+    color: #e74e07;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
   }
-  
-  .Topo h4 {
-    font-size: 18px;
-    color: #888;
-    text-align: center;
-  }
-  
-  .Topo button {
-    font-size: 18px;
-    color: #eaeaea;
-    text-align: center;
-    padding: 10px 20px;
-    margin-top: 20px; /* Adiciona um espaço entre o botão e o texto */
-    cursor: pointer;
-    background-color: #cd1818;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .Topo button:hover {
-    background-color: #b81515;
-  }
-  
-  
-  
-  /* Container dos cards */
-  .cards-container {
+
+  .botao-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 40px; /* Espaçamento entre os botões */
+    margin-top: 50px; /* Espaço superior para dar respiro ao layout */
   }
   
-  /* Item do cardápio */
-  .item-container {
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 280px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .item-container:hover {
-    transform: translateY(-10px);
-  }
-  
-  .item-icon {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .name-price {
-    padding: 15px;
-  }
-  
-  .name-price p {
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .name-price h3 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #F05A28;
-    margin-top: 10px;
-  }
-  
-  /* Ações do item */
-  .item-actions {
+  .botao-com-texto {
     display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ddd;
+    flex-direction: column; /* Organiza o ícone e o texto na vertical */
+    align-items: center; /* Alinha o ícone e o texto ao centro */
+    text-align: center; /* Garante que o texto fique centralizado */
+    padding: 10px;
   }
   
-  .item-actions button {
-    background-color: #F05A28;
+  .botao_add {
+    background-color: #34dbd5; /* Cor azul mais suave para o botão */
     color: white;
-    border: none;
-    padding: 8px 16px;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .item-actions button:hover {
-    background-color: #D1491B;
-  }
-  
-  /* Formulário para adicionar novo item */
-  .add-item-form {
-    margin-top: 30px;
-    background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .add-item-form h3 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .add-item-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .add-item-form button {
-    background-color: #F05A28;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50%;
     cursor: pointer;
-  }
-  
-  .add-item-form button:hover {
-    background-color: #D1491B;
-  }
-  
-  /* Modal (adicionar/editar item) */
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra para dar profundidade */
+    width: 60px; /* Tamanho fixo do botão */
+    height: 60px; /* Tamanho fixo do botão */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
   }
   
-  .modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    width: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  .botao_add:hover {
+    background-color: #29b9ad; /* Cor mais escura quando o botão for hover */
+    transform: translateY(-3px); /* Efeito de movimento para cima no hover */
   }
   
-  .modal-content h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
+  .botao_add:active {
+    transform: translateY(1px); /* Efeito de clicar no botão */
   }
   
-  .modal-content input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+  .botao-com-texto span {
+    font-size: 30px; /* Tamanho de fonte para o texto */
+    color: #485f75; /* Cor do texto mais escura para contraste */
+    font-weight: 600; /* Leve negrito para o texto */
+    margin-top: 10px; /* Espaçamento entre o botão e o texto */
+    text-transform: capitalize; /* Capitaliza o texto */
+    letter-spacing: 1px; /* Espaçamento entre as letras */
   }
   
-  .modal-content button {
-    background-color: #F05A28;
-    color: white;
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+
   
-  .modal-content button:hover {
-    background-color: #D1491B;
+}
+
+/* Seção de listagem de cardápios */
+
+.menus-list {
+  color: rgb(162, 162, 162);
+  border-radius: 10px;
+}
+
+.menu-separator {
+  margin: 1em;
+  margin-bottom: 3em;
+  margin-top: 3em;
+  padding: 1em;
+  border-radius: 10px;
+  background-color:#1f1f1f;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.10), 
+              0px 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.exc_alt {
+  display: flex;
+  flex-direction: row;
+
+  h2 {
+    margin-right: 2em;
+    margin-top: 1em;
+    color: #e74e07;
   }
-  
-  .modal-content .cancel-btn {
-    background-color: #ccc;
-    margin-top: 10px;
-  }
-  
-  .modal-content .cancel-btn:hover {
-    background-color: #bbb;
-  }
-  
-  /* Botão de fechar o modal */
-  .close-modal {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    color: #888;
-    cursor: pointer;
-  }
-  
-  .close-modal:hover {
-    color: #333;
-  }
-  
-  /* Modal (adicionar/editar item) */
+}
+
+.botao {
+  display: flex;
+  gap: 10px;
+}
+
+.deletar,
+.adicionar,
+.editar {
+  background-color: #db3434; /* Cor azul para o botão de deletar */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Bordas mais suaves */
+  width: 50px; /* Definindo um tamanho fixo */
+  height: 50px; /* Definindo um tamanho fixo */
+  display: flex;
+  border-radius: 50%;
+  justify-content: center; /* Alinha o ícone no centro */
+  align-items: center; /* Alinha o ícone no centro */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.deletar:hover {
+  background-color: #b92929; /* Cor mais escura ao passar o mouse no botão de deletar */
+  transform: scale(1.1);
+}
+
+.adicionar {
+  background-color: #2eccc9; /* Cor verde para o botão de adicionar */
+}
+
+.adicionar:hover {
+  background-color: #27a5ae; /* Cor mais escura ao passar o mouse no botão de adicionar */
+}
+
+.editar {
+  background-color: #2ecc60; /* Cor verde para o botão de adicionar */
+}
+
+.editarr:hover {
+  background-color: #27ae5f; /* Cor mais escura ao passar o mouse no botão de adicionar */
+}
+
+.botoes {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  gap: 10px;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(10, 10, 10);
+  margin-top: 1em;
+}
+
+.fotos {
+  height: 250px;
+  width: 350px;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2em;
+  border-radius: 10px;
+  width: 100%;
+}
+
+h2 {
+  margin-top: 2em;
+  color: #c7c7c7;
+}
+
+p {
+  color: #a2a2a2;
+  margin-top: 1em;
+}
+
+
+
+/* Seção de CRUD de itens */
+.crud-itens {
+  background-color: #334155;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.crud-itens input[type='text'],
+.crud-itens input[type='number'] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #64748b;
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+
+/*--------------------------------------------------------------*/
+
+
+
+/* Modal */
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    width: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-  }
-  
-  .modal-content h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .modal-content input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .modal-content button {
-    background-color: #F05A28;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #475569;
+  padding-bottom: 10px;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e74e07;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #e2e8f0;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: rgb(207, 68, 68);
+}
+
+.modal-body {
+  padding: 20px 0;
+
+  button {
+    background-color: #e74e07;
+    cursor: pointer;
     color: white;
-    padding: 10px 20px;
-    font-size: 16px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .modal-content button:hover {
-    background-color: #D1491B;
-  }
-  
-  .modal-content .cancel-btn {
-    background-color: #ccc;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-right: 10px;
     margin-top: 10px;
+    font-size: 1rem;
   }
-  
-  .modal-content .cancel-btn:hover {
-    background-color: #bbb;
+
+  button:hover {
+    background-color: #b92929;
   }
-  
-  /* Botão de fechar o modal */
-  .close-modal {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    color: #888;
-    cursor: pointer;
+}
+
+.item-selection h3 {
+  color: #e2e8f0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #2d3748;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: background 0.3s ease;
+}
+
+.item:hover {
+  background-color: #3b4458;
+}
+
+.item input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.item span {
+  color: #e2e8f0;
+  font-size: 1rem;
+  flex: 1;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-footer button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.modal-footer .confirm {
+  background-color: #e74e07;
+  color: white;
+  border: none;
+}
+
+.modal-footer .cancel {
+  background-color: rgb(209, 64, 64);
+  color: white;
+  border: none;
+}
+
+.modal-footer button:hover {
+  opacity: 0.9;
+}
+
+.modal-body input[type='text'],
+.modal-body input[type='number'] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #64748b;
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
   }
-  
-  .close-modal:hover {
-    color: #333;
-  }
-  
+}
+
