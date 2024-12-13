@@ -25,6 +25,7 @@ function Cardapio() {
 
 
   useEffect(() => {
+<<<<<<< Updated upstream
     fetchMenus();
     fetchItems();
   }, []);
@@ -125,6 +126,37 @@ function Cardapio() {
       console.error("Erro ao excluir o item", error);
       toast.error('Erro ao excluir o item. Tente novamente.');
     }
+=======
+    getItem()
+  }, []);
+
+  const getItem = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/api/item')
+      console.log(response.data);  // Verifique a resposta da API
+      setCardData(response.data);
+
+    } catch (e) {
+      console.error("Erro ao buscar os itens", e);
+
+
+    }
+
+  }
+  // 2️⃣ Criar um novo item
+  const handleAddItem = () => {
+    axios.post('http://localhost:8080/api/item', newItem)
+      .then(response => {
+        setCardData([...cardData, response.data]);
+        setNewItem({ nome: '', descricao: '', price: '', image: '' }); // Limpar o formulário
+        setIsAddItemModalOpen(false); // Fechar o modal após adicionar
+        toast.success('Item adicionado com sucesso!'); // Notificação de sucesso
+      })
+      .catch(error => {
+        console.error("Erro ao adicionar item", error);
+        toast.error('Erro ao adicionar o item. Tente novamente.'); // Notificação de erro
+      });
+>>>>>>> Stashed changes
   };
 
   const handleEditItem = (item) => {
