@@ -18,7 +18,6 @@ public class Pedido {
 
     @OneToMany(mappedBy = "pedido")
     private Set<ItemDoPedido> itensDoPedido;
-
     @OneToOne
     @JoinColumn(name = "dados_do_pagamento_id", referencedColumnName = "id")
     private DadosDoPagamento dadosDoPagamento;

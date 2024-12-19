@@ -25,7 +25,7 @@ public class Item {
     @JsonIgnoreProperties("item")
     private List<Cardapio> cardapio;
 
-    public Item(){
+    public Item() {
 
     }
 
