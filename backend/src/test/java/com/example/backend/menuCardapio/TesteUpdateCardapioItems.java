@@ -58,6 +58,7 @@ public class TesteUpdateCardapioItems {
         assertTrue(updatedCardapio.getItem().containsAll(Arrays.asList(item1, item2)));
     }
 
+    //Test verifica id valido
     @Test
     void testUpdateCardapioItems_InvalidCardapioId() {
         Long cardapioId = 999L;
