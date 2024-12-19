@@ -12,8 +12,10 @@ public class DadosDeEntregaDoPedido {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Endereco enderecoEntrega;
+
 
     @OneToOne(mappedBy = "dadosDeEntregaDoPedido")
     private Pedido pedido;
