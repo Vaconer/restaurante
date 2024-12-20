@@ -1,20 +1,22 @@
-//package com.example.backend.restaurante.controller.menu;
-
-import com.example.backend.restaurante.controller.menu.ItemController;
-import com.example.backend.restaurante.model.menu.Item;
-import com.example.backend.restaurante.service.menu.ItemService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.springframework.http.ResponseEntity;
+package com.example.backend.menuCardapio;
 
 import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.ResponseEntity;
+
+import com.example.backend.restaurante.controller.menu.ItemController;
+import com.example.backend.restaurante.model.menu.Item;
+import com.example.backend.restaurante.service.menu.ItemService;
 
 class ItemControllerTest {
 
