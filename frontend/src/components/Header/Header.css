@@ -1,6 +1,6 @@
 .Header {
     padding: 0 3vw;
-    background-color: #000000;  /* Cor de fundo mais sóbria */
+    background-color: rgba(0, 0, 0, 0.762);  /* Cor de fundo mais sóbria */
     position: relative;
     display: flex;
     justify-content: space-between; /* Espaço entre logo e itens */
@@ -37,7 +37,7 @@
   .nav-itens a {
     color: #ecf0f1;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     position: relative;
     transition: color 0.3s ease, transform 0.3s ease;
   }
