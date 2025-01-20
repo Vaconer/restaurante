@@ -1,32 +1,36 @@
 package com.example.backend.restaurante.model.menu;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Item {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String nome;
-    private String descricao;
-    private BigDecimal price;
-    private String image;
+    private String name;
+    private double price;
+    private String description;
     private Boolean availability;
+    private String imageUrl;
 
     @ManyToMany(mappedBy = "item")
     @JsonIgnoreProperties("item")
     private List<Cardapio> cardapio;
 
-    public Item(){
+    // Construtores, getters e setters
 
+    public Item(String name, double price, String description, Boolean availability, String imageUrl) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.availability = availability;
+        this.imageUrl = imageUrl;
     }
 
     public Long getId() {
@@ -37,36 +41,28 @@ public class Item {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public String getImage() {
-        return image;
+    public String getDescription() {
+        return description;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Boolean getAvailability() {
@@ -75,6 +71,14 @@ public class Item {
 
     public void setAvailability(Boolean availability) {
         this.availability = availability;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public List<Cardapio> getCardapio() {
