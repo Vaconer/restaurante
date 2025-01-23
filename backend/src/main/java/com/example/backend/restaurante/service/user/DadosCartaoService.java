@@ -1,8 +1,6 @@
 package com.example.backend.restaurante.service.user;
 
-import com.example.backend.restaurante.model.menu.Cardapio;
 import com.example.backend.restaurante.model.user.DadosCartao;
-import com.example.backend.restaurante.repository.menu.CardapioRepository;
 import com.example.backend.restaurante.repository.user.DadosCartaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,37 +14,35 @@ public class DadosCartaoService {
     @Autowired
     private DadosCartaoRepository dadosCartaoRepository;
 
-    public DadosCartao saveDadosCartao(DadosCartao dadosCartao){
-        return dadosCartaoRepository.save(dadosCartao);
+    public List<DadosCartao> findCartoesByUsuario(Long usuarioId) {
+        return dadosCartaoRepository.findByUsuarioId(usuarioId);
     }
 
-    public List<DadosCartao> getAllDadosCartao(){
-        return dadosCartaoRepository.findAll();
+    public Optional<DadosCartao> findCartaoByIdAndUsuario(Long id, Long usuarioId) {
+        return dadosCartaoRepository.findById(id)
+                .filter(cartao -> cartao.getUsuario().getId().equals(usuarioId));
     }
 
-    public DadosCartao getDadosCartaoById(Long id){
-        Optional<DadosCartao> dadosCartao = dadosCartaoRepository.findById(id);
-        return dadosCartao.orElse(null);
+    public DadosCartao saveCartaoForUsuario(DadosCartao cartao, Long usuarioId) {
+        cartao.getUsuario().setId(usuarioId);
+        return dadosCartaoRepository.save(cartao);
     }
 
-    public DadosCartao updateDadosCartao(Long id, DadosCartao updateDadosCartao){
-        Optional<DadosCartao> dadosCartao = dadosCartaoRepository.findById(id);
-        if(dadosCartao.isPresent()){
-            DadosCartao existingdadosCartao = dadosCartao.get();
-            existingdadosCartao.setNumeroCartao(updateDadosCartao.getNumeroCartao());
-            existingdadosCartao.setNomeTitular(updateDadosCartao.getNomeTitular());
-            existingdadosCartao.setValidadeCartao(updateDadosCartao.getValidadeCartao());
-            existingdadosCartao.setCvv(updateDadosCartao.getCvv());
+    public DadosCartao updateCartaoForUsuario(Long id, DadosCartao updatedCartao, Long usuarioId) {
+        var cartao = findCartaoByIdAndUsuario(id, usuarioId)
+                .orElseThrow(() -> new RuntimeException("Acesso negado ao cartão"));
 
-
-            return dadosCartaoRepository.save(existingdadosCartao);
-        }else{
-            return null;
-        }
+        cartao.setNumeroCartao(updatedCartao.getNumeroCartao());
+        cartao.setNomeTitular(updatedCartao.getNomeTitular());
+        cartao.setValidadeCartao(updatedCartao.getValidadeCartao());
+        cartao.setCvv(updatedCartao.getCvv());
+        return dadosCartaoRepository.save(cartao);
     }
 
-    public void deleteDadosCartao(Long id){
-        dadosCartaoRepository.deleteById(id);
+    public void deleteCartaoForUsuario(Long id, Long usuarioId) {
+        var cartao = findCartaoByIdAndUsuario(id, usuarioId)
+                .orElseThrow(() -> new RuntimeException("Acesso negado ao cartão"));
+        dadosCartaoRepository.delete(cartao);
     }
-
 }
+

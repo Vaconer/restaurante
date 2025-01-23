@@ -1,7 +1,10 @@
 package com.example.backend.restaurante.model.user;
 
+import com.example.backend.restaurante.controller.dto.LoginRequest;
 import jakarta.persistence.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.management.relation.Role;
 import java.util.Set;
 
 @Entity
@@ -11,18 +14,25 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
     @OneToMany(mappedBy = "usuario")
     private Set<Endereco> endereco;
 
     @OneToMany(mappedBy = "usuario")
     private Set<DadosCartao> cartoes;
 
-    private String nome;
+    @Column(unique = true)
     private String email;
+
+    private String nome;
     private String password;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "tb_users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Roles> roles;
 
     public Usuario(){
 
@@ -76,16 +86,15 @@ public class Usuario {
         this.password = password;
     }
 
-    public Role getRole() {
-        return role;
+    public Set<Roles> getRoles() {
+        return roles;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoles(Set<Roles> roles) {
+        this.roles = roles;
     }
 
-    public enum Role {
-        ADMIN,
-        CLIENTE}
-
+   public boolean isLoginCorrect(LoginRequest loginRequest, PasswordEncoder passwordEncoder){
+        return passwordEncoder.matches(loginRequest.password(), this.password);
+    }
 }

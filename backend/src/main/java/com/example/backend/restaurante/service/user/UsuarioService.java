@@ -34,9 +34,9 @@ public class UsuarioService {
                 existingUsuario.setNome(updateUsuario.getNome());
                 existingUsuario.setEmail(updateUsuario.getEmail());
                 existingUsuario.setPassword(updateUsuario.getPassword());
-                existingUsuario.setRole(updateUsuario.getRole());
                 existingUsuario.setEndereco(updateUsuario.getEndereco());
                 existingUsuario.setCartoes(updateUsuario.getCartoes());
+                existingUsuario.setRoles(updateUsuario.getRoles());
 
                 return usuarioRepository.save(existingUsuario);
             } else {

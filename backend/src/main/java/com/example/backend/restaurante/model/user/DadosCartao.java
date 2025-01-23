@@ -10,7 +10,7 @@ public class DadosCartao {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
     private String numeroCartao;
